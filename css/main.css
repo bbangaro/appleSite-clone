@@ -132,7 +132,25 @@ a {
     color: white;
     background: darkorange;
 }
+.sticky_elem {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+#show-scene-0 #scroll-section-0 .sticky_elem,
+#show-scene-1 #scroll-section-1 .sticky_elem,
+#show-scene-2 #scroll-section-2 .sticky_elem,
+#show-scene-3 #scroll-section-3 .sticky_elem {
+    display: block;
+}
+/* 
+sticky : 상단 고정 (top 2rem만큼 오면 상단고정) , ie11에서 안돌아감
+top: 2rem 
 
+fixed : 해당 위치 고정
+ */
 
 /* 창 크기가 1024px 이상이면 */
 @media (min-width: 1024px) {
