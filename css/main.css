@@ -83,6 +83,7 @@ a {
     margin: 5px 0;
     height: 3em; /* em : 현재 영역 font-size기준으로 3배 */
     font-size: 2.5rem;
+    opacity: 0;
 }
 .main-message p {
     font-weight: bold;
