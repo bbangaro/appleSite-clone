@@ -80,6 +80,7 @@ a {
     display: flex;
     align-items: center; /* 세로방향 정렬 */
     justify-content: center; /* 가로방향 정렬 */
+    top: 35vh; /* 높이의 35% */
     margin: 5px 0;
     height: 3em; /* em : 현재 영역 font-size기준으로 3배 */
     font-size: 2.5rem;
@@ -120,6 +121,14 @@ a {
     height: 100px;
     background: rgb(29, 29, 31);
 }
+#scroll-section-2 .b {
+    top: 10%;
+    left: 40%;
+}
+#scroll-section-2 .c {
+    top: 15%;
+    left: 45%;
+}
 .mid-message {
     max-width: 1000px;
     margin: 0 auto;
@@ -148,7 +157,6 @@ a {
 .sticky_elem {
     display: none;
     position: fixed;
-    top: 0;
     left: 0;
     width: 100%;
 }
@@ -159,9 +167,9 @@ a {
 #show-scene-3 #scroll-section-3 .sticky_elem {
     display: block;
 }
-/* 
+/*
 sticky : 상단 고정 (top 2rem만큼 오면 상단고정) , ie11에서 안돌아감
-top: 2rem 
+top: 2rem
 
 fixed : 해당 위치 고정
  */
@@ -188,6 +196,13 @@ fixed : 해당 위치 고정
     }
     .desc-message {
         width: 20%;
+    }
+    #scroll-section-2 .b {
+        top: 20%;
+        left: 53%;
+    }
+    #scroll-section-2 .c {
+        left: 55%;
     }
     .mid-message {
         font-size: 4vw;
