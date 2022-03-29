@@ -41,7 +41,7 @@
 				console.log(progress);
 				if (progress < 0) progress = 0;
 				if (progress > 1) progress = 1;
-				//       원하는 지점의 재생시간 =  전체 비디오 재생시간 * 스크롤 된 비율 
+				//       현재 재생시간 =  전체 비디오 재생시간 * 스크롤 된 비율
 				videoElem.currentTime = videoElem.duration * progress;
 			});
 		}
