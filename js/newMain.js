@@ -23,6 +23,7 @@
             values: {
                 videoImageCount: 300,
                 imageSequence: [0, 299],
+                canvas_opacity: [1, 0, { start: 0.9, end: 1 }],
                 messageA_opacity_in: [0, 1, { start: 0.1, end: 0.2 }],
                 messageB_opacity_in: [0, 1, { start: 0.3, end: 0.4 }],
                 messageC_opacity_in: [0, 1, { start: 0.5, end: 0.6 }],
@@ -128,6 +129,11 @@
             }
         }
         document.body.setAttribute('id', `show-scene-${currentScene}`);
+
+        // 캔버스 css
+        //                         창 높이 / 캔버스 높이
+        const heightRatio = window.innerHeight / 1080;
+        sceneInfo[0].objs.canvas.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`;
     }
 
     function calcValues(values, currentYOffset) {
@@ -168,6 +174,11 @@
 
         switch (currentScene) {
             case 0:
+                let sequence = Math.round(calcValues(values.imageSequence, currentYOffset));
+                // 처음에 캔버스 화면에 그리고 시작
+                objs.context.drawImage(objs.videoImages[sequence], 0, 0);
+                objs.canvas.style.opacity = calcValues(values.canvas_opacity, currentYOffset);
+
                 // 나타나고 사라지는 구간의 중간
                 if (scrollRatio <= 0.22) {
                     // in
@@ -292,8 +303,10 @@
         scrollLoop();
     });
     // window.addEventListener('DOMContentLoaded', setLayout);
-    window.addEventListener('load', setLayout);
+    window.addEventListener('load', () => {
+        setLayout();
+        // 캔버스 첫장면 로드
+        sceneInfo[0].objs.context.drawImage(sceneInfo[0].objs.videoImages[0], 0, 0);
+    });
     window.addEventListener('resize', setLayout);
-
-    setLayout();
 })();

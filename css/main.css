@@ -68,11 +68,12 @@ a {
 /* content (mobile-first) */
 
 .scroll-section {
-    /*TODO 임시*/
-    border: 3px solid sandybrown;
     padding-top: 50vh; /* viewort hight (브라우저 창 높이의 절반) */
 }
 #scroll-section-0 h1 {
+    position: relative;
+    top: -10vh;
+    z-index: 5;
     font-size: 4rem; /* 기본 html 폰트size가 14px니까 14px * 4 =56px */
     text-align: center;
 }
@@ -154,17 +155,17 @@ a {
     color: white;
     background: darkorange;
 }
-.sticky_elem {
+.sticky-elem {
     display: none;
     position: fixed;
     left: 0;
     width: 100%;
 }
 /* 해당 클래스명이 붙으면 보여주기 */
-#show-scene-0 #scroll-section-0 .sticky_elem,
-#show-scene-1 #scroll-section-1 .sticky_elem,
-#show-scene-2 #scroll-section-2 .sticky_elem,
-#show-scene-3 #scroll-section-3 .sticky_elem {
+#show-scene-0 #scroll-section-0 .sticky-elem,
+#show-scene-1 #scroll-section-1 .sticky-elem,
+#show-scene-2 #scroll-section-2 .sticky-elem,
+#show-scene-3 #scroll-section-3 .sticky-elem {
     display: block;
 }
 /*
@@ -175,7 +176,13 @@ fixed : 해당 위치 고정
  */
 .sticky-elem-canvas {
     top: 0;
-    background: #ccc;
+    height: 100vh;
+}
+.sticky-elem-canvas canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* transrate는 setLayout()에서 */
 }
 
 /* 창 크기가 1024px 이상이면 */
